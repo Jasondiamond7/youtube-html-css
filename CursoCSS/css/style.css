@@ -1,0 +1,121 @@
+/* Regla CSs consta de 2 partes
+1) El selector = cualquier etiqueta html(clases, id ,etc)
+2) Bloque de declaraciones = cada uno de los atributos que vamos a modificar.{
+Atributo: valor;
+atributo-mas-de-dos-palabras: otro-valor;
+} */
+
+/* Importo el codigo de otra hoja css */
+/* Son mala practica, son bloquueantes a la hora que el navegador lee esta instruccion */
+@import url("otra-hoja.css");
+
+
+/* El selector seria la etiqueta H1 */
+h1 { 
+    /* Atributos a definir */
+    color: orangered;
+    background-color: black;
+}
+
+/* Links de referencias y documentacion*/
+
+
+
+/*
+Selectores basicos
+  1) Etiquetas - Son elementos HTML
+  2) Identificadores - atrituto id - #
+  3) Clases - atributo class - .
+*/
+
+/* Todos los parrafos quedan el color asignado */
+p {
+    color: midnightblue;
+}
+
+/* Dar estilos con id se considera un AntiPatron, ya que es un identificador, por tanto es unico */
+#parrafo-2 {
+    background-color: skyblue;
+}
+
+
+/* Dar estilos con clases nos permite reutilizar nuestro codigo css */
+/* Es mucho mejor practica utilizar Clases para las hojas de estilos, ya que con clases podemos 
+    tener muchos mas clases dentro de la misma, y lo mejor es que son mas especifica en lo que cumplen
+*/
+
+.bg-skyblue{
+    background-color: skyblue;
+}
+
+.bg-steelblue{
+    background-color: steelblue;
+}
+
+.text-32 {
+    font-size: 32px;
+}
+
+.text-20 {
+    font-size: 20px;
+}
+
+.text-white {
+    color: white;
+}
+
+/* El selector de hijos directos, solo aplica a los elementos del primer nivel, en este caso LI, no la B */
+.hijos-directos > li {
+    background-color: thistle;
+}
+
+.hijos-descendientes b {
+    background-color: thistle;
+}
+
+/* Aplicale el color de fondo a las LI que sean hermanas, esto aplica los estilos a los hermanos que esten por debajos, por eso no aplica al elemento que se le asigno la clase */
+.hermanos-general ~ li{
+    background-color: thistle;
+}
+
+/* Va a aplicar los estilos a los elementos que esten justamente por debajo de este  */
+.hermanos-adyacentes + li{
+    background-color: thistle;
+}
+
+
+/* Selectores de atributos */
+.selectores-atributos a[href]{
+    color: orangered;
+}
+
+.selectores-atributos a[target="_blank"]{
+    font-weight: bold;
+}
+
+/* El comodin del * aplica el estilo si contiene la palabra en cuestion */
+.selectores-atributos a[href*="jonmircha"]{
+    font-size: 24px;
+}
+
+/* El comodin del ^ aplica el estilo si contiene el texto en cuestion en el inicio */
+.selectores-atributos a[href^="http://"]{
+    text-decoration: none;
+}
+
+
+/* El comodin del $ aplica el estilo si contiene el texto en cuestion al final */
+.selectores-atributos a[href$=".com"]{
+    background-color: black;
+}
+
+
+/* El comodin del $ aplica el estilo si contiene el texto en cuestion en una lista separados por espacios */
+.selectores-atributos a[class~="cursos"]{
+    background-color: midnightblue;
+}
+
+/* El comodin del | aplica el estilo si contiene el texto en cuestion en una lista separados por espacios, y que despues del texto en cuestion venga un "-" (menu-item de la clase) tiene que tener un -  */
+.selectores-atributos a[class|="menu"]{
+    font-style: italic;
+}
